@@ -19,14 +19,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 10px 8px;
+      padding: 8px 8px;
       overflow-x: hidden;
     }
 
     .top-name {
-      width: 170px;
+      width: 168px;
       max-width: 42vw;
-      margin-bottom: 12px;   /* thoda kam kiya */
+      margin-bottom: 8px;     /* kam kiya */
+      margin-top: -15px;      /* top name ko oper kiya */
       z-index: 5;
     }
 
@@ -37,7 +38,7 @@
       padding: 16px;
       border-radius: 22px;
       box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
-      margin-top: -15px;     /* video ko thoda oper shift */
+      margin-top: -28px;      /* video ko aur oper kiya */
       z-index: 2;
     }
 
@@ -68,9 +69,9 @@
     }
 
     .bottom-name {
-      width: 170px;
+      width: 168px;
       max-width: 42vw;
-      margin-top: -8px;      /* bottom image ko oper kiya */
+      margin-top: -18px;      /* bottom name ko aur oper kiya */
       z-index: 5;
     }
 
@@ -78,18 +79,19 @@
     @media (max-width: 768px) {
       .top-name {
         width: 155px;
-        margin-bottom: 10px;
+        margin-bottom: 6px;
+        margin-top: -18px;     /* mobile pe top name aur oper */
       }
 
       .card {
         padding: 14px;
         border-radius: 20px;
-        margin-top: -20px;     /* mobile pe video aur oper */
+        margin-top: -35px;     /* mobile pe video aur oper */
       }
 
       .bottom-name {
         width: 155px;
-        margin-top: -12px;     /* bottom name ko aur thoda oper */
+        margin-top: -22px;     /* mobile pe bottom name aur oper */
       }
 
       video {
