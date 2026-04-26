@@ -8,23 +8,26 @@
 
   <style>
 
-    /* ===== BASE PAGE ===== */
+    /* ===== BASE ===== */
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px 0;
       font-family: Arial;
       background: linear-gradient(to right, #ffe4e1, #fff0f5);
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* ===== CENTER CARD ===== */
+    /* ===== TOP NAME ===== */
+    .left-name {
+      width: 280px;
+      margin-bottom: 20px;
+    }
+
+    /* ===== CARD ===== */
     .card {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       background: white;
       padding: 20px;
       border-radius: 20px;
@@ -32,7 +35,6 @@
       text-align: center;
       max-width: 550px;
       width: 90%;
-      z-index: 5;
     }
 
     .title {
@@ -60,59 +62,50 @@
       color: #b03060;
     }
 
-    /* ===== DESKTOP NAMES ===== */
-    .left-name {
-      position: fixed;
-      left: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 280px;
-      z-index: 10;
-    }
-
+    /* ===== BOTTOM NAME ===== */
     .right-name {
-      position: fixed;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
       width: 280px;
-      z-index: 10;
+      margin-top: 20px;
     }
 
-    /* ===== MOBILE RESPONSIVE ===== */
+    /* ===== DESKTOP ADJUST ===== */
+    @media (min-width: 769px) {
+
+      body {
+        justify-content: center;
+      }
+
+      .left-name {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .right-name {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0;
+      }
+    }
+
+    /* ===== MOBILE ADJUST ===== */
     @media (max-width: 768px) {
 
-      /* TOP NAME */
       .left-name {
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
         width: 160px;
-        z-index: 10;
       }
 
-      /* BOTTOM NAME (FIXED) */
       .right-name {
-        position: absolute;
-        bottom: 10px;   /* 👈 FIXED */
-        left: 50%;
-        transform: translateX(-50%);
         width: 160px;
-        z-index: 10;
       }
 
-      /* CARD CENTER ADJUST */
       .card {
-        position: absolute;
-        top: 55%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         width: 92%;
-        z-index: 5;
       }
 
-      /* VIDEO SIZE MOBILE */
       video {
         max-height: 300px;
       }
@@ -123,11 +116,8 @@
 
 <body>
 
-  <!-- LEFT / TOP NAME -->
+  <!-- TOP NAME -->
   <img src="awais.png" class="left-name">
-
-  <!-- RIGHT / BOTTOM NAME -->
-  <img src="arooj.png" class="right-name">
 
   <!-- MAIN CARD -->
   <div class="card">
@@ -142,6 +132,9 @@
       We would be honored by your presence
     </div>
   </div>
+
+  <!-- BOTTOM NAME -->
+  <img src="arooj.png" class="right-name">
 
 </body>
 </html>
