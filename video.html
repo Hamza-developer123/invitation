@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Invitation Video</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <style>
     * {
       margin: 0;
@@ -14,18 +14,17 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(to right, #ffe4e1, #fff0f5);
       min-height: 100vh;
+      min-height: -webkit-fill-available; /* iOS safe height fix */
       position: relative;
       overflow-x: hidden;
       text-align: center;
-      padding-bottom: 80px; /* bottom name ke liye space */
+      padding-bottom: 120px; /* bottom name ke liye extra space */
     }
 
     /* ===== VIDEO CARD ===== */
     .card {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      margin: 20px auto;
       background: white;
       padding: 20px;
       border-radius: 20px;
@@ -61,70 +60,61 @@
     }
 
     /* ===== NAMES ===== */
-    .left-name {
-      position: fixed;
-      left: 20px;
-      top: 45%;
-      transform: translateY(-50%);
-      width: 250px;
+    .top-name {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      max-width: 40vw;
       z-index: 5;
-      max-width: 25vw;
     }
 
-    .right-name {
-      position: fixed;
-      right: 20px;
-      top: 55%;
-      transform: translateY(-50%);
-      width: 250px;
+    .bottom-name {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      max-width: 40vw;
       z-index: 5;
-      max-width: 25vw;
     }
 
     /* ===== MOBILE FIXES ===== */
     @media (max-width: 768px) {
       .card {
-        width: 92%;
-        padding: 15px;
-        top: 50%; /* center mein rakha */
+        width: 94%;
+        padding: 15px 12px;
+        margin: 70px auto 100px; /* top name + bottom name ke liye space */
       }
 
-      /* Top Name */
-      .left-name {
-        position: absolute; /* fixed ki jagah absolute better mobile pe */
-        top: 15px;
-        left: 50%;
-        transform: translateX(-50%);
+      .top-name {
+        top: 12px;
         width: 160px;
-        max-width: 40vw;
       }
 
-      /* Bottom Name */
-      .right-name {
-        position: absolute;
-        bottom: 100px;
-        left: 50%;
-        transform: translateX(-50%);
+      .bottom-name {
+        bottom: max(25px, env(safe-area-inset-bottom));
         width: 160px;
-        max-width: 40vw;
       }
 
       body {
-        padding-bottom: 100px; /* extra space bottom name ke liye */
+        padding-bottom: 140px; /* extra breathing room for very tall mobiles */
       }
     }
 
-    /* Extra safe area for very tall mobiles (notch wale phones) */
+    /* Extra safety for notch / dynamic island phones */
     @media (max-width: 768px) and (orientation: portrait) {
-      .right-name {
-        bottom: max(15px, env(safe-area-inset-bottom));
+      .bottom-name {
+        bottom: max(30px, env(safe-area-inset-bottom));
       }
     }
   </style>
 </head>
 <body>
+
   <!-- Top Name -->
-  <img src="awais.png" alt="Awais" class="left-name">
+  <img src="awais.png" alt="Awais" class="top-name">
 
   <!-- Video Card -->
   <div class="card">
@@ -140,6 +130,7 @@
   </div>
 
   <!-- Bottom Name -->
-  <img src="arooj.png" alt="Arooj" class="right-name">
+  <img src="arooj.png" alt="Arooj" class="bottom-name">
+
 </body>
 </html>
